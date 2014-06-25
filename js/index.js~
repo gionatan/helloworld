@@ -1,0 +1,58 @@
+var app = {
+    
+    // Application Constructor
+initialize: function() {
+    this.bindEvents();
+},
+    // Bind Event Listeners
+    //
+    // Bind any events that are required on startup. Common events are:
+    // 'load', 'deviceready', 'offline', and 'online'.
+bindEvents: function() {
+    document.addEventListener('deviceready', this.onDeviceReady, false);
+},
+    
+onDeviceReady: function() {
+
+    IAP.initialize();
+    
+    var playmeUrl = 'http://www2.playme.com/';
+//    window.localStorage.setItem('subscriptionReceipt',''); alert("DELETED");
+    
+    var ref = window.open(playmeUrl, '_blank', 'location=no,toolbar=no');
+    ref.addEventListener('loadstart', function(event) {
+                         if (event.url.match(/gotobilling=1/)){
+                            //ref = window.open('purchase.html', '_self');
+                            ref.close();
+
+                            if (IAP.loaded) {
+                                var pId = 'playme.subscription.monthly';
+                                IAP.buy(pId);
+                            } else {
+                            alert("In-App Purchases not available");
+                            }
+                         }
+    });
+
+    if (window.localStorage.getItem('subscriptionReceipt') && window.localStorage.getItem('transactionId')){
+
+        // var playmeUrl = 'http://www2.playme.com/?_IAP_IOS=1';
+        
+        ref.addEventListener('loadstop', function(event) {
+                             
+                             alert(event.url);
+                             
+                             if (event.url.match(/\/radio/)){
+                             ref.executeScript(
+                                               { code: "var PURCHASE_TOKEN = '"+ window.localStorage.getItem('subscriptionReceipt') +"'; var PAYMETHOD='itunes'; var USER_PREMIUM = 1; var APP_INSTALLED=1; var USER_ACCOUNT= 'itunes."+window.localStorage.getItem('transactionId')+"';" },
+                                               function () {}
+                                               );
+                             }
+                             
+                             });
+        
+    }
+     
+    
+}
+};

@@ -1,0 +1,9 @@
+2014-06-03 14:51:06.022 radio[774:60b] *** Assertion failure in -[UIApplication runModal:](), /SourceCache/UIKit/UIKit-2935.137/UIApplication.m:9585
+2014-06-03 14:51:06.023 radio[774:60b] *** WebKit discarded an uncaught exception in the webView:runJavaScriptAlertPanelWithMessage:initiatedByFrame: delegate: <NSInternalInconsistencyException> The view passed in does not have a window.
+2014-06-03 14:51:06.101 radio[774:60b] Resetting plugins due to page load.
+2014-06-03 14:51:06.120 radio[774:60b] webView:didFailLoadWithError - 102: Apertura frame interrotta
+2014-06-03 14:51:06.841 radio[774:60b] Finished load of: http://www2.playme.com/it/iphone/radio/index.html
+2014-06-03 14:51:19.967 radio[774:60b] InAppPurchase[objc]: Payment transaction updated (playme.subscription.monthly):
+2014-06-03 14:51:19.967 radio[774:60b] InAppPurchase[objc]: SKPaymentTransactionStateRestored...
+2014-06-03 14:51:19.968 radio[774:60b] InAppPurchase[objc]: State: PaymentTransactionStateRestored
+

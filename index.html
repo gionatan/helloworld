@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Play.me - web radio per ascoltare musica mp3 in streaming</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=1">
+            <meta name="apple-mobile-web-app-capable" content="yes" />
+            <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+            <link rel="stylesheet" href="css/xradio_static.css" />
+            
+    </head>
+    <body id="err">
+        <header>
+            <div class="wrap">
+                <h2><a id="logo" class="icon" href="#"></a></h2>
+            </div>
+        </header>
+        <div class="wrap err_page" id="errmsg" style="margin-top:30px"></div>
+            
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/configs.js"></script>
+        <script type="text/javascript">
+            document.getElementById('errmsg').innerHTML = '<h2><a id="logo" class="icon" href="#"></a></h2>' +
+                '<p class="err_title" data-type="no_errdesc">' +
+                CONFIGS.getText('STR_NO_CONNECTION') +
+                '</p>' + '<p class="err_subtitle">' +
+                CONFIGS.getText('STR_NO_CONNECTION_TXT') +
+                '</p>' + '<p class="info__big"><a id="goToPlayme" class="button--link" href="index.html" >' +
+                CONFIGS.getText('STR_NO_CONNECTION_RETRY') + '</a></p>';
+        </script>
+        
+    </body>
+</html>
